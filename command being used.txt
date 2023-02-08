@@ -1,9 +1,17 @@
-docker command - 
+docker commands - 
     //Starts containers for zookeeper and kafka
     docker-compose -f docker-compose-core.yml -p core up -d
 
     //bash terminal for kafka
     docker exec -it kafka bash
+
+    //kafka consumer
+    kafka-console-consumer.sh (params)
+
+    //kafka consume topic partitionss [id]
+    kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic t-multi-partitions --offset earliest --partitions [id]
+
+kafka bash commands -
 
     $ kafka-topics.sh - documenation/help
 
