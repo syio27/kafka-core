@@ -27,3 +27,9 @@ kafka bash commands -
     //change partitions number in topic
     $ kafka-topics.sh --bootstrap-server localhost:9092 --alter --topic {topic-name} --partitions {new partitions number}
 
+    //details of consumer group
+    $ kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group {group name} --describe
+
+    //reset the offset of partition in consumer group
+    $ kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group {group name} --execute --reset-offsets --to-offset {offset number} --topic {topic name}
+
