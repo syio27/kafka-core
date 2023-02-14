@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
-@Service
+//@Service
 public class FixedRate2Producer {
 
     private static final Logger LOG = LoggerFactory.getLogger(FixedRate2Producer.class);
@@ -19,7 +19,7 @@ public class FixedRate2Producer {
 
     private AtomicInteger counter = new AtomicInteger();
 
-    @Scheduled(fixedRate = 1000)
+//    @Scheduled(fixedRate = 1000)
     public void send(){
         var i = counter.incrementAndGet();
         LOG.info("FIXEDRATE-2: current counter is - {}", i);

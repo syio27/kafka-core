@@ -9,7 +9,7 @@ docker commands -
     kafka-console-consumer.sh (params)
 
     //kafka consume topic partitionss [id]
-    kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic t-multi-partitions --offset earliest --partitions [id]
+    kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic t-multi-partitions --offset earliest --partition [id]
 
 kafka bash commands -
 
@@ -17,8 +17,13 @@ kafka bash commands -
 
     $ kafka-topics.sh --bootstrap-server localhost:9092 --create --topic t-hello --partitions 1 --replication-factor 1
     (Created topic t-hello)
-
+-
+    //list topics in server
     $ kafka-topics.sh --bootstrap-server localhost:9092 --list
 
+    //details of topic
     $ kafka-topics.sh --bootstrap-server localhost:9092 --describe --topic t-hello
+
+    //change partitions number in topic
+    $ kafka-topics.sh --bootstrap-server localhost:9092 --alter --topic {topic-name} --partitions {new partitions number}
 

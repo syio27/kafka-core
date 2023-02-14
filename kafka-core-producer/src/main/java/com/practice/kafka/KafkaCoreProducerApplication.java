@@ -8,6 +8,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
+import java.util.concurrent.TimeUnit;
+
 @SpringBootApplication
 @EnableScheduling
 public class KafkaCoreProducerApplication implements CommandLineRunner {
@@ -21,10 +23,11 @@ public class KafkaCoreProducerApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		for(int i=0; i<30; i++){
+		for(int i=0; i<100000; i++){
 			var key = "key-" + (i%4);
 			var value = "value " + i + " with key " + key;
 			kafkaKeyProducer.send(key, value);
+			TimeUnit.SECONDS.sleep(1);
 		}
 	}
 }
