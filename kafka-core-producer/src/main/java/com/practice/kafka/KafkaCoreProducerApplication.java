@@ -16,8 +16,6 @@ import java.util.concurrent.TimeUnit;
 @SpringBootApplication
 @EnableScheduling
 public class KafkaCoreProducerApplication implements CommandLineRunner {
-	@Autowired
-	private EmployeeJsonProducer producer;
 
 	public static void main(String[] args) {
 		SpringApplication.run(KafkaCoreProducerApplication.class, args);
@@ -25,9 +23,5 @@ public class KafkaCoreProducerApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		for (int i=0; i < 5; i++) {
-			var emp = new Employee("emp-" +i, "Employee-"+i, LocalDate.now());
-			producer.send(emp);
-		}
 	}
 }
