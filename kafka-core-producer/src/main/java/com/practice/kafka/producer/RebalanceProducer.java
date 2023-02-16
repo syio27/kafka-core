@@ -11,7 +11,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class RebalanceProducer {
 
     @Autowired
-    private KafkaTemplate kafkaTemplate;
+    private KafkaTemplate<String, String> kafkaTemplate;
 
     private AtomicInteger counter = new AtomicInteger();
 
